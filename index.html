@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angelique Bernabe</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      border-bottom: 1px solid #e5e5e0;
+    }
+
+    nav .logo {
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      letter-spacing: 0.03em;
+    }
+
+    nav ul li a:hover { text-decoration: underline; }
+
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+    }
+
+    .hero .label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      font-weight: normal;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: #555;
+    }
+
+    .hero p {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #444;
+      max-width: 640px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: #1a1a1a;
+      margin: 3rem auto 3rem 0;
+    }
+
+    .roles {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .role {
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+
+    .role h3 {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 0.4rem;
+    }
+
+    .role p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    footer {
+      border-top: 1px solid #e5e5e0;
+      padding: 2rem 4rem;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.8rem;
+      color: #aaa;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Angelique Bernabe</div>
+    <ul>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">Teaching</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="label">Research</div>
+    <h1>Research that doesn't<br><em>stay on the shelf.</em></h1>
+    <div class="divider"></div>
+    <p>
+      I'm a labour economist. I lead national research in the financial industry,
+      teach economics at Toronto Metropolitan University, serve on boards, and
+      co-founded LOCVM. Different rooms, same question: how do we make labour
+      markets actually work for people?
+    </p>
+  </section>
+
+  <section class="roles">
+    <div class="role">
+      <h3>Research</h3>
+      <p>National research leadership in the financial industry</p>
+    </div>
+    <div class="role">
+      <h3>Teaching</h3>
+      <p>Economics at Toronto Metropolitan University</p>
+    </div>
+    <div class="role">
+      <h3>Boards</h3>
+      <p>Governance and advisory roles across sectors</p>
+    </div>
+    <div class="role">
+      <h3>Co-founder</h3>
+      <p>LOCVM</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Angelique Bernabe</span>
+    <span>Labour Economist</span>
+  </footer>
+
+</body>
+</html>
