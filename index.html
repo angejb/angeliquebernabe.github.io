@@ -118,10 +118,18 @@
 
     .hero-name {
       font-family: var(--serif);
-      font-size: clamp(3rem, 6.5vw, 5rem);
+      font-size: clamp(2.2rem, 5vw, 3.75rem);
       font-weight: 400;
-      line-height: 1.0;
-      margin-bottom: 0.6rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-byline {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 400;
+      color: var(--ink-mid);
+      margin-bottom: 0.4rem;
     }
 
     .hero-title {
@@ -501,7 +509,8 @@
   <!-- Hero -->
   <section id="hero">
     <div class="wrap">
-      <h1 class="hero-name">Angélique<br>Bernabé, Ph.D.</h1>
+      <h1 class="hero-name">Research that doesn't<br><span style="color: var(--ink-muted);">stay on the shelf.</span></h1>
+      <div class="hero-byline">Angélique Bernabé, Ph.D.</div>
       <div class="hero-title">Applied Labour Economist</div>
       <p class="hero-quote">"I work in the spaces between people and opportunity. My job is to close them."</p>
       <p class="hero-supporting">I lead national research in the financial industry, teach economics at Toronto Metropolitan University, serve on boards, and co-founded <a href="https://locvm.ca/" class="hero-link" target="_blank" rel="noopener">LOCVM</a>.</p>
