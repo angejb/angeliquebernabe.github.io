@@ -247,6 +247,16 @@ section:last-of-type { border-bottom: none; }
   letter-spacing: .005em; color: var(--hero-ink); margin: 2.25rem auto 0;
 }
 .orbit-suffix { color: var(--hero-mint-deep); }
+.orbit-tagline {
+  font-family: "Spectral", serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--hero-ink);
+  margin: 0.6rem auto 0;
+  text-align: center;
+}
 .orbit-support {
   font-family: "Work Sans", sans-serif; font-weight: 300; font-size: clamp(0.95rem, 1.6vw, 1.15rem);
   line-height: 1.75; color: var(--hero-ink-soft); max-width: 640px; margin: 1rem auto 0;
@@ -255,19 +265,23 @@ section:last-of-type { border-bottom: none; }
 .orbit-support strong { color: var(--hero-ink); font-weight: 400; }
 .orbit-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2.25rem; }
 .orbit-btn-primary {
-  display: inline-block; background: var(--hero-ink); color: var(--hero-paper);
-  text-decoration: none; padding: 0.8rem 2.2rem; font-family: "Archivo", sans-serif;
-  font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
-  border-radius: 2px; transition: background 0.2s;
+  display: inline-block;
+  background: transparent;
+  color: var(--hero-mint-deep);
+  border: 1.5px solid var(--hero-mint-deep);
+  text-decoration: none;
+  padding: 0.8rem 2.2rem;
+  font-family: "Archivo", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  transition: background 0.25s, color 0.25s;
 }
-.orbit-btn-primary:hover { background: var(--hero-persimmon-deep); }
-.orbit-btn-outline {
-  display: inline-block; border: 1px solid var(--hero-ink); color: var(--hero-ink);
-  text-decoration: none; padding: 0.8rem 2.2rem; font-family: "Archivo", sans-serif;
-  font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
-  border-radius: 2px; transition: all 0.2s;
+.orbit-btn-primary:hover {
+  background: var(--hero-mint-deep);
+  color: var(--hero-paper);
 }
-.orbit-btn-outline:hover { background: var(--hero-ink); color: var(--hero-paper); }
 
 /* ---- motion ---- */
 @keyframes orbit-flow { to { stroke-dashoffset: -230; } }
@@ -429,7 +443,7 @@ figcaption {
   padding: 0.4rem 1rem;
   font-size: 0.78rem;
   color: var(--ink-light);
-  border-radius: 2px;
+  border-radius: 100px;
 }
 .logo-wall {
   display: flex;
@@ -563,10 +577,10 @@ footer {
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#research">Research</a></li>
-<li><a href="#teaching">Teaching</a></li>
-<li><a href="#governance">Governance</a></li>
-<li><a href="#speaking">Speaking</a></li>
-<li><a href="#entrepreneurship">Entrepreneurship</a></li>
+<li><a href="#convene">Convene</a></li>
+<li><a href="#govern">Govern</a></li>
+<li><a href="#pitch">Pitch</a></li>
+<li><a href="#build">Build</a></li>
 <li><a href="#contact" class="nav-cta">Let's talk</a></li>
 </ul>
 </nav>
@@ -631,7 +645,7 @@ footer {
     </a>
   </div>
   <div class="orbit-node orbit-node--right" style="left:82.40%; top:39.47%;">
-    <a href="#teaching">
+    <a href="#convene">
       <span class="orbit-dot"></span>
       <span class="orbit-card">
         <span class="orbit-verb-row"><span class="orbit-idx">02</span><span class="orbit-verb">Convene</span></span>
@@ -641,7 +655,7 @@ footer {
     </a>
   </div>
   <div class="orbit-node orbit-node--right" style="left:71.90%; top:80.14%;">
-    <a href="#governance">
+    <a href="#govern">
       <span class="orbit-dot"></span>
       <span class="orbit-card">
         <span class="orbit-verb-row"><span class="orbit-idx">03</span><span class="orbit-verb">Govern</span></span>
@@ -651,7 +665,7 @@ footer {
     </a>
   </div>
   <div class="orbit-node orbit-node--left" style="left:30.13%; top:77.34%;">
-    <a href="#speaking">
+    <a href="#pitch">
       <span class="orbit-dot"></span>
       <span class="orbit-card">
         <span class="orbit-verb-row"><span class="orbit-idx">04</span><span class="orbit-verb">Pitch</span></span>
@@ -661,7 +675,7 @@ footer {
     </a>
   </div>
   <div class="orbit-node orbit-node--left" style="left:14.43%; top:38.44%;">
-    <a href="#entrepreneurship">
+    <a href="#build">
       <span class="orbit-dot"></span>
       <span class="orbit-card">
         <span class="orbit-verb-row"><span class="orbit-idx">05</span><span class="orbit-verb">Build</span></span>
@@ -673,6 +687,7 @@ footer {
 </div>
 
 <div class="orbit-signature">Angélique J. Bernabé<span class="orbit-suffix">, Ph.D.</span></div>
+<p class="orbit-tagline">My career is a case study in the changing nature of work.</p>
 
 <p class="orbit-support">
   I've always been interested in the spaces between people and opportunity.
@@ -684,8 +699,7 @@ footer {
 </p>
 
 <div class="orbit-cta-row">
-  <a href="#contact" class="orbit-btn-primary">Let's talk</a>
-  <a href="#about" class="orbit-btn-outline">About my work</a>
+  <a href="#research" class="orbit-btn-primary">What is the future of work? &nbsp;→</a>
 </div>
 </div>
 </section>
@@ -707,7 +721,6 @@ footer {
 <section id="research" class="alt">
 <div class="wrap">
 <div class="label">Research</div>
-<h2 class="section-heading">Work is changing faster than<br>the systems built for it.</h2>
 <div class="research-grid">
 <div class="research-card">
 <h3>Physician Labour Markets and Coordination</h3>
@@ -729,11 +742,10 @@ footer {
 </div>
 </section>
 
-<!-- Teaching -->
-<section id="teaching">
+<!-- Convene -->
+<section id="convene">
 <div class="wrap">
-<div class="label">Teaching</div>
-<h2 class="section-heading">Some questions need a classroom.</h2>
+<div class="label">Convene</div>
 <div class="two-col">
 <div>
 <div class="col-label">What I teach</div>
@@ -756,11 +768,10 @@ footer {
 </div>
 </section>
 
-<!-- Governance -->
-<section id="governance" class="alt">
+<!-- Govern -->
+<section id="govern" class="alt">
 <div class="wrap">
-<div class="label">Governance</div>
-<h2 class="section-heading">Some questions need a boardroom.</h2>
+<div class="label">Govern</div>
 <div class="gov-grid">
 <div class="gov-card">
 <h3>Board of Governors</h3>
@@ -776,24 +787,20 @@ footer {
 </div>
 </section>
 
-<!-- Speaking -->
-<section id="speaking">
+<!-- Pitch -->
+<section id="pitch">
 <div class="wrap">
-<div class="label">Speaking</div>
-<h2 class="section-heading">Some ideas need a stage.</h2>
+<div class="label">Pitch</div>
 <p class="speaking-intro">I speak on labour markets, the future of work, and what it takes to close the gap between how work is organized and how people actually live. My talks are grounded in research and designed to move a room.</p>
 <div class="photo-grid">
 <figure class="photo-item">
-<div class="photo-block">Event photo</div>
-<figcaption>Event name, City, Year</figcaption>
+<img src="assets/ange_event1.jpg" alt="Speaking event" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;">
 </figure>
 <figure class="photo-item">
-<div class="photo-block">Event photo</div>
-<figcaption>Event name, City, Year</figcaption>
+<img src="assets/ange_event2.jpg" alt="Speaking event" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;">
 </figure>
 <figure class="photo-item">
-<div class="photo-block">Event photo</div>
-<figcaption>Event name, City, Year</figcaption>
+<img src="assets/ange_event3.png" alt="Speaking event" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;">
 </figure>
 </div>
 <div class="label" style="margin-bottom: 0.75rem;">Topics</div>
@@ -808,11 +815,10 @@ footer {
 </div>
 </section>
 
-<!-- Entrepreneurship -->
-<section id="entrepreneurship" class="alt">
+<!-- Build -->
+<section id="build" class="alt">
 <div class="wrap">
-<div class="label">Entrepreneurship</div>
-<h2 class="section-heading">And some need to be built.</h2>
+<div class="label">Build</div>
 <div class="entrepreneurship-body">
 <p>LOCVM is where my research meets practice. After years of studying how labour markets fail, I co-founded a platform to do something about one of the most visible failures I kept encountering: physicians and healthcare organizations across Canada struggling to find each other.</p>
 <p class="locvm-thesis">Canada's staffing crisis isn't only a shortage. It's a matching problem, and matching problems can be solved.</p>
