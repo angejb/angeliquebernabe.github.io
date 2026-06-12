@@ -19,6 +19,10 @@
   --ink-muted: #9a9a92;
   --accent: #9e7e6a;
   --rule: #dbd6cc;
+  --mint: oklch(0.66 0.09 168);
+  --mint-tint: oklch(0.92 0.03 168);
+  --mint-deep: oklch(0.55 0.095 168);
+  --mint-darker: oklch(0.44 0.1 168);
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'Inter', 'Helvetica Neue', sans-serif;
 }
@@ -129,9 +133,9 @@ section:last-of-type { border-bottom: none; }
   --hero-paper: #F4ECDB;
   --hero-ink: #27323C;
   --hero-ink-soft: color-mix(in oklab, var(--hero-ink) 60%, transparent);
-  --hero-mint: oklch(0.66 0.09 168);
-  --hero-mint-deep: oklch(0.55 0.095 168);
-  --hero-mint-tint: oklch(0.92 0.03 168);
+  --hero-mint: var(--mint);
+  --hero-mint-deep: var(--mint-deep);
+  --hero-mint-tint: var(--mint-tint);
   --hero-persimmon: oklch(0.65 0.155 42);
   --hero-persimmon-deep: oklch(0.56 0.16 40);
   --hero-halo: oklch(0.915 0.016 78);
@@ -317,6 +321,34 @@ section:last-of-type { border-bottom: none; }
 }
 
 /* ── About ── */
+.about-name {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+}
+.about-name-suffix { color: rgba(255,255,255,0.6); }
+.about-tagline {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.75rem;
+}
+#about {
+  background:
+    radial-gradient(ellipse at 90% 10%, var(--mint) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 90%, oklch(0.48 0.11 168) 0%, transparent 45%),
+    var(--mint-deep);
+}
+#about .about-name { color: white; }
+#about .about-lede { color: rgba(255,255,255,0.92); }
+#about .orbit-support { color: rgba(255,255,255,0.78); margin: 1.25rem 0 0; }
+#about .text-link { color: white; border-bottom-color: rgba(255,255,255,0.45); }
+#about .text-link:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.75); }
+#about .orbit-btn-primary { color: white; border-color: rgba(255,255,255,0.65); }
+#about .orbit-btn-primary:hover { background: var(--mint-darker); border-color: var(--mint-darker); color: white; }
 .about-lede {
   font-family: var(--serif);
   font-size: clamp(1.25rem, 2.5vw, 1.7rem);
@@ -603,18 +635,6 @@ footer {
 <div class="wrap">
 <div class="hero-col-left">
 <h1 class="orbit-headline">Research that <span class="orbit-seed">doesn't</span> stay on the shelf.</h1>
-<p class="orbit-tagline">My career is a case study in the changing nature of work.</p>
-<p class="orbit-support">
-  I've always been interested in the spaces between people and opportunity.
-  As a labour economist, I study how labour markets function, how careers evolve,
-  and how institutions respond when people's expectations of work change.
-  Across research, teaching, governance, speaking, and building, I'm interested in
-  one question: <strong>how can we design systems that make it easier for people to do
-  meaningful work?</strong>
-</p>
-<div class="orbit-cta-row">
-  <a href="#research" class="orbit-btn-primary">What is the future of work? &nbsp;→</a>
-</div>
 </div>
 <div class="hero-col-right">
 <p class="orbit-eyebrow">The operating system of a career</p>
@@ -713,7 +733,6 @@ footer {
   </div>
 </div>
 
-<div class="orbit-signature">Angélique J. Bernabé<span class="orbit-suffix">, Ph.D.</span></div>
 </div>
 </div>
 </section>
@@ -721,12 +740,14 @@ footer {
 <!-- About -->
 <section id="about">
 <div class="wrap">
-<div class="label">About</div>
+<p class="about-tagline">My career is a case study in the changing nature of work.</p>
+<p class="about-name">Angélique J. Bernabé<span class="about-name-suffix">, Ph.D.</span></p>
 <p class="about-lede">I've always been interested in the spaces between people and opportunity.</p>
-<div class="prose">
-<p>As a labour economist, I study how labour markets function, how careers evolve, and how institutions respond when people's expectations of work change. My work spans retirement, workforce mobility, physician labour markets, and the future of work, but the underlying question is always the same: how can we design systems that make it easier for people to do meaningful work?</p>
-<p>That question led me to co-found <a href="https://locvm.ca/" class="text-link" target="_blank" rel="noopener">LOCVM</a>, a platform helping physicians and healthcare organizations connect across Canada. It also shapes my research, teaching, and public speaking, where I explore how flexibility, mobility, and technology are transforming the relationship between people and work.</p>
-<p>I teach economics at Toronto Metropolitan University, serve on TMU's Board of Governors, and speak on the future of work, workforce innovation, labour market design, and the changing relationship between people and work.</p>
+<p class="orbit-support">As a labour economist, I study how labour markets function, how careers evolve, and how institutions respond when people's expectations of work change. My work spans retirement, workforce mobility, physician labour markets, and the future of work, but the underlying question is always the same: how can we design systems that make it easier for people to do meaningful work?</p>
+<p class="orbit-support">That question led me to co-found <a href="https://locvm.ca/" class="text-link" target="_blank" rel="noopener">LOCVM</a>, a platform helping physicians and healthcare organizations connect across Canada. It also shapes my research, teaching, governance, and entrepreneurial work, where I explore how flexibility, mobility, and technology are transforming the relationship between people and work.</p>
+<p class="orbit-support">My career is a case study in the changing nature of work. Through research, convening, governance, and building, I explore how ideas move from evidence to action—and how institutions can evolve to better connect people with opportunity.</p>
+<div class="orbit-cta-row" style="margin-top: 2.5rem;">
+<a href="#research" class="orbit-btn-primary">What is the future of work? &nbsp;→</a>
 </div>
 </div>
 </section>
