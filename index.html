@@ -1,638 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Angélique Bernabé, Ph.D. — Applied Labour Economist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:           #f8f6f1;
-      --bg-alt:       #f1ede5;
-      --ink:          #1a1a18;
-      --ink-mid:      #3a3a36;
-      --ink-light:    #5a5a54;
-      --ink-muted:    #9a9a92;
-      --accent:       #9e7e6a;
-      --rule:         #dbd6cc;
-      --serif:        'Playfair Display', Georgia, serif;
-      --sans:         'Inter', 'Helvetica Neue', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 4rem;
-    }
-
-    .nav-name {
-      font-family: var(--serif);
-      font-size: 0.95rem;
-      letter-spacing: 0.01em;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--ink-light);
-      font-size: 0.78rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: var(--ink); }
-
-    .nav-cta {
-      background: var(--ink);
-      color: var(--bg) !important;
-      padding: 0.55rem 1.25rem;
-      border-radius: 2px;
-    }
-
-    .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
-
-    /* ── Shared ── */
-    .wrap {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 6rem 2.5rem;
-    }
-
-    .label {
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-heading {
-      font-family: var(--serif);
-      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 2.5rem;
-    }
-
-    section { border-bottom: 1px solid var(--rule); }
-    section:last-of-type { border-bottom: none; }
-
-    .alt { background: var(--bg-alt); }
-
-    /* ── Hero ── */
-    #hero .wrap { padding-top: 9rem; padding-bottom: 9rem; }
-
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 1rem;
-    }
-
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 5vw, 3.75rem);
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .hero-byline {
-      font-family: var(--serif);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      font-weight: 400;
-      color: var(--ink-mid);
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-title {
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 3.5rem;
-    }
-
-    .hero-quote {
-      font-family: var(--serif);
-      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.45;
-      color: var(--ink);
-      max-width: 680px;
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-
-    .hero-supporting {
-      font-size: 0.95rem;
-      color: var(--ink-light);
-      max-width: 560px;
-      line-height: 1.8;
-      margin-bottom: 2.75rem;
-    }
-
-    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn-dark {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--bg);
-      text-decoration: none;
-      padding: 0.8rem 2.2rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-
-    .btn-dark:hover { background: var(--accent); }
-
-    .btn-outline {
-      display: inline-block;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      text-decoration: none;
-      padding: 0.8rem 2.2rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: all 0.2s;
-    }
-
-    .btn-outline:hover { background: var(--ink); color: var(--bg); }
-
-    /* ── About ── */
-    .about-lede {
-      font-family: var(--serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.7rem);
-      font-style: italic;
-      line-height: 1.45;
-      margin-bottom: 2rem;
-    }
-
-    .prose p {
-      font-size: 0.98rem;
-      line-height: 1.9;
-      color: var(--ink-light);
-      max-width: 680px;
-      margin-bottom: 1.25rem;
-    }
-
-    /* ── Research ── */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2.25rem;
-      margin-top: 1rem;
-    }
-
-    .research-card {
-      border-top: 2px solid var(--accent);
-      padding-top: 1.25rem;
-    }
-
-    .research-card h3 {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      line-height: 1.3;
-      margin-bottom: 0.6rem;
-    }
-
-    .research-card p {
-      font-size: 0.85rem;
-      color: var(--ink-light);
-      line-height: 1.7;
-    }
-
-    /* ── Teaching ── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
-    }
-
-    .col-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .col-body p, .col-body li {
-      font-size: 0.9rem;
-      color: var(--ink-light);
-      line-height: 1.75;
-    }
-
-    .col-body ul { padding-left: 1.1rem; }
-
-    /* ── Governance ── */
-    .gov-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 1rem;
-    }
-
-    .gov-card {
-      border-left: 2px solid var(--accent);
-      padding-left: 1.5rem;
-    }
-
-    .gov-card h3 {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .gov-org {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .gov-card p {
-      font-size: 0.875rem;
-      color: var(--ink-light);
-      line-height: 1.7;
-    }
-
-    /* ── Speaking ── */
-    .speaking-intro {
-      font-size: 0.98rem;
-      color: var(--ink-light);
-      max-width: 640px;
-      line-height: 1.85;
-      margin-bottom: 3rem;
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .photo-item figure {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .photo-block {
-      background: #e6e1d8;
-      aspect-ratio: 4/3;
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink-muted);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    figcaption {
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      margin-top: 0.5rem;
-      text-align: center;
-      font-style: italic;
-    }
-
-    .topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 3rem;
-    }
-
-    .topic {
-      border: 1px solid var(--rule);
-      padding: 0.4rem 1rem;
-      font-size: 0.78rem;
-      color: var(--ink-light);
-      border-radius: 2px;
-    }
-
-    .logo-wall {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 2.5rem;
-      align-items: center;
-      padding: 2rem 0;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 3rem;
-    }
-
-    .logo-name {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      font-weight: 500;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.75rem;
-      margin-bottom: 3rem;
-    }
-
-    .testimonial {
-      background: var(--bg-alt);
-      padding: 1.75rem;
-      border-radius: 2px;
-    }
-
-    .testimonial blockquote {
-      font-family: var(--serif);
-      font-size: 0.95rem;
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-
-    .testimonial cite {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      font-style: normal;
-    }
-
-    /* ── LOCVM ── */
-    .locvm-body {
-      max-width: 640px;
-    }
-
-    .locvm-body p {
-      font-size: 0.98rem;
-      color: var(--ink-light);
-      line-height: 1.9;
-      margin-bottom: 1.25rem;
-    }
-
-    .locvm-thesis {
-      font-family: var(--serif);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-style: italic;
-      line-height: 1.55;
-      color: var(--ink);
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--accent);
-      margin: 2rem 0;
-    }
-
-    .text-link {
-      font-size: 0.85rem;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .text-link:hover { color: var(--accent); border-color: var(--accent); }
-
-    .hero-link {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--ink-muted);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .hero-link:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* ── Entrepreneurship ── */
-    .entrepreneurship-body {
-      max-width: 640px;
-    }
-
-    .entrepreneurship-body p {
-      font-size: 0.98rem;
-      color: var(--ink-light);
-      line-height: 1.9;
-      margin-bottom: 1.25rem;
-    }
-
-    /* ── Contact ── */
-    .contact-body p {
-      font-size: 0.98rem;
-      color: var(--ink-light);
-      max-width: 560px;
-      line-height: 1.9;
-      margin-bottom: 2rem;
-    }
-
-    .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--ink-muted);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 720px) {
-      nav { padding: 1rem 1.5rem; }
-      nav ul { display: none; }
-      .wrap { padding: 4rem 1.5rem; }
-      .two-col,
-      .gov-grid,
-      .testimonials { grid-template-columns: 1fr; gap: 2rem; }
-      .photo-grid { grid-template-columns: 1fr; }
-      footer { padding: 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Angélique Bernabé, Ph.D. — Applied Labour Economist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Spectral:ital,wght@0,300;1,300;0,500&family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #f8f6f1;
+  --bg-alt: #f1ede5;
+  --ink: #1a1a18;
+  --ink-mid: #3a3a36;
+  --ink-light: #5a5a54;
+  --ink-muted: #9a9a92;
+  --accent: #9e7e6a;
+  --rule: #dbd6cc;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', 'Helvetica Neue', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* ── Nav ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 4rem;
+}
+.nav-name {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+nav a {
+  text-decoration: none;
+  color: var(--ink-light);
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--ink);
+  color: var(--bg) !important;
+  padding: 0.55rem 1.25rem;
+  border-radius: 2px;
+}
+.nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+
+/* ── Shared ── */
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 6rem 2.5rem;
+}
+.label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+}
+section { border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: none; }
+.alt { background: var(--bg-alt); }
+
+/* ── Buttons (shared) ── */
+.btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-dark {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  padding: 0.8rem 2.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn-dark:hover { background: var(--accent); }
+.btn-outline {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.8rem 2.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bg); }
+
+/* ── Hero (Orbit) ──
+   Scoped custom properties: these only affect descendants of #hero,
+   so the rest of the site keeps its existing palette/typography. */
+#hero {
+  --hero-paper: #F4ECDB;
+  --hero-ink: #27323C;
+  --hero-ink-soft: color-mix(in oklab, var(--hero-ink) 60%, transparent);
+  --hero-mint: oklch(0.66 0.09 168);
+  --hero-mint-deep: oklch(0.55 0.095 168);
+  --hero-mint-tint: oklch(0.92 0.03 168);
+  --hero-persimmon: oklch(0.65 0.155 42);
+  --hero-persimmon-deep: oklch(0.56 0.16 40);
+  --hero-halo: oklch(0.915 0.016 78);
+  --hero-glow: oklch(0.95 0.012 80);
+  --hero-sys: clamp(320px, 56vw, 660px);
+
+  border-bottom: 1px solid var(--rule);
+  background:
+    radial-gradient(circle at 50% 40%, var(--hero-glow) 0%, transparent 55%),
+    var(--hero-paper);
+  color: var(--hero-ink);
+  font-family: "Work Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+#hero .wrap {
+  padding-top: 4.5rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.orbit-eyebrow {
+  font-family: "Archivo", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .34em;
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--hero-mint-deep);
+  margin: 0 0 0.5rem;
+}
+.orbit-headline {
+  font-family: "Spectral", serif;
+  font-weight: 300;
+  font-size: clamp(1.9rem, 4.4vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -.012em;
+  max-width: 14ch;
+  text-wrap: balance;
+  margin: 0 0 1.5rem;
+  color: var(--hero-ink);
+}
+.orbit-headline .orbit-seed { font-style: italic; color: var(--hero-mint-deep); }
+
+/* ---- orbit system ---- */
+.orbit-system { position: relative; width: var(--hero-sys); height: var(--hero-sys); margin: 0 auto; }
+.orbit-rings { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.orbit-photo {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 43%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  background: var(--hero-halo);
+  box-shadow: 0 30px 70px -34px rgba(39, 50, 60, .55),
+              0 0 0 1.5px color-mix(in oklab, var(--hero-mint) 22%, transparent),
+              inset 0 0 0 1px rgba(255, 255, 255, .5);
+}
+.orbit-photo img {
+  width: 100%; height: 100%; display: block; object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.orbit-node { position: absolute; width: 0; height: 0; }
+.orbit-node a {
+  position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 14px;
+  width: max-content; max-width: 46vw; text-decoration: none; color: inherit; cursor: pointer;
+}
+.orbit-node--right a { transform: translate(-8px, -50%); }
+.orbit-node--left a { flex-direction: row-reverse; transform: translate(calc(-100% + 8px), -50%); }
+.orbit-node--top a {
+  flex-direction: column-reverse; align-items: center; gap: 9px;
+  transform: translate(-50%, calc(-100% + 9px));
+}
+.orbit-dot {
+  position: relative; flex: 0 0 auto; width: 17px; height: 17px; border-radius: 50%;
+  background: var(--hero-paper); border: 2px solid var(--hero-mint);
+  box-shadow: 0 0 0 5px color-mix(in oklab, var(--hero-mint) 12%, transparent);
+  transition: transform .3s ease, border-color .3s, box-shadow .3s;
+}
+.orbit-dot::after {
+  content: ""; position: absolute; inset: 3px; border-radius: 50%;
+  background: var(--hero-mint); transform: scale(0); transition: transform .3s ease;
+}
+.orbit-card { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.orbit-node--left .orbit-card { text-align: right; align-items: flex-end; }
+.orbit-node--right .orbit-card { text-align: left; align-items: flex-start; }
+.orbit-node--top .orbit-card { text-align: center; align-items: center; }
+.orbit-verb-row { display: flex; align-items: baseline; gap: 8px; }
+.orbit-node--left .orbit-verb-row { flex-direction: row-reverse; }
+.orbit-idx { font-family: "Archivo", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: .1em; color: var(--hero-mint); }
+.orbit-verb { font-family: "Spectral", serif; font-weight: 500; font-size: clamp(0.95rem, 2vw, 1.5rem); line-height: 1; color: var(--hero-ink); }
+.orbit-tag {
+  font-family: "Archivo", sans-serif; text-transform: uppercase; letter-spacing: .2em;
+  font-weight: 500; font-size: 9.5px; color: var(--hero-persimmon-deep); white-space: nowrap;
+}
+.orbit-desc {
+  font-family: "Work Sans", sans-serif; font-weight: 300; font-size: 12.5px; line-height: 1.5;
+  color: var(--hero-ink-soft); max-width: 208px; max-height: 0; opacity: 0; overflow: hidden;
+  transition: max-height .4s ease, opacity .3s ease, margin-top .3s ease;
+}
+.orbit-node a:hover .orbit-desc, .orbit-node a:focus-visible .orbit-desc { max-height: 90px; opacity: 1; margin-top: 5px; }
+.orbit-node a:hover .orbit-dot, .orbit-node a:focus-visible .orbit-dot {
+  transform: scale(1.32); border-color: var(--hero-persimmon);
+  box-shadow: 0 0 0 7px color-mix(in oklab, var(--hero-persimmon) 16%, transparent);
+}
+.orbit-node a:hover .orbit-dot::after, .orbit-node a:focus-visible .orbit-dot::after {
+  transform: scale(1); background: var(--hero-persimmon);
+}
+.orbit-node a:hover .orbit-idx { color: var(--hero-persimmon); }
+.orbit-node a:focus-visible { outline: none; }
+
+/* ---- signature, support, CTAs ---- */
+.orbit-signature {
+  font-family: "Spectral", serif; font-weight: 500; font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  letter-spacing: .005em; color: var(--hero-ink); margin: 2.25rem auto 0;
+}
+.orbit-suffix { color: var(--hero-mint-deep); }
+.orbit-support {
+  font-family: "Work Sans", sans-serif; font-weight: 300; font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  line-height: 1.75; color: var(--hero-ink-soft); max-width: 640px; margin: 1rem auto 0;
+  text-wrap: pretty; text-align: center;
+}
+.orbit-support strong { color: var(--hero-ink); font-weight: 400; }
+.orbit-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2.25rem; }
+.orbit-btn-primary {
+  display: inline-block; background: var(--hero-ink); color: var(--hero-paper);
+  text-decoration: none; padding: 0.8rem 2.2rem; font-family: "Archivo", sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
+  border-radius: 2px; transition: background 0.2s;
+}
+.orbit-btn-primary:hover { background: var(--hero-persimmon-deep); }
+.orbit-btn-outline {
+  display: inline-block; border: 1px solid var(--hero-ink); color: var(--hero-ink);
+  text-decoration: none; padding: 0.8rem 2.2rem; font-family: "Archivo", sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
+  border-radius: 2px; transition: all 0.2s;
+}
+.orbit-btn-outline:hover { background: var(--hero-ink); color: var(--hero-paper); }
+
+/* ---- motion ---- */
+@keyframes orbit-flow { to { stroke-dashoffset: -230; } }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes orbit-spin-rev { to { transform: rotate(-360deg); } }
+.orbit-flow { animation: orbit-flow 10s linear infinite; }
+.orbit-plane { transform-box: view-box; transform-origin: 50% 50%; animation: orbit-spin 200s linear infinite; }
+.orbit-echo { transform-box: view-box; transform-origin: 50% 50%; animation: orbit-spin-rev 120s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .orbit-flow, .orbit-plane, .orbit-echo, .orbit-particle { animation: none; }
+  .orbit-particle { display: none; }
+}
+
+/* ---- small screens ---- */
+@media (max-width: 720px) {
+  #hero .wrap { padding-top: 3rem; padding-bottom: 3rem; }
+  .orbit-system { margin-top: 1.5rem; }
+  .orbit-node a { gap: 8px; }
+  .orbit-desc { max-width: 36vw; font-size: 11px; }
+}
+
+/* ── About ── */
+.about-lede {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  line-height: 1.45;
+  margin-bottom: 2rem;
+}
+.prose p {
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--ink-light);
+  max-width: 680px;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Research ── */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.25rem;
+  margin-top: 1rem;
+}
+.research-card {
+  border-top: 2px solid var(--accent);
+  padding-top: 1.25rem;
+}
+.research-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+.research-card p {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+}
+
+/* ── Teaching ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.col-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.col-body p, .col-body li {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.75;
+}
+.col-body ul { padding-left: 1.1rem; }
+
+/* ── Governance ── */
+.gov-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+.gov-card {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.5rem;
+}
+.gov-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+.gov-org {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+.gov-card p {
+  font-size: 0.875rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+}
+
+/* ── Speaking ── */
+.speaking-intro {
+  font-size: 0.98rem;
+  color: var(--ink-light);
+  max-width: 640px;
+  line-height: 1.85;
+  margin-bottom: 3rem;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+.photo-item figure {
+  display: flex;
+  flex-direction: column;
+}
+.photo-block {
+  background: #e6e1d8;
+  aspect-ratio: 4/3;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+figcaption {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+.topic {
+  border: 1px solid var(--rule);
+  padding: 0.4rem 1rem;
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  border-radius: 2px;
+}
+.logo-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+.logo-name {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+}
+.testimonial {
+  background: var(--bg-alt);
+  padding: 1.75rem;
+  border-radius: 2px;
+}
+.testimonial blockquote {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.testimonial cite {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-style: normal;
+}
+
+/* ── LOCVM ── */
+.locvm-body {
+  max-width: 640px;
+}
+.locvm-body p {
+  font-size: 0.98rem;
+  color: var(--ink-light);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+.locvm-thesis {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--accent);
+  margin: 2rem 0;
+}
+.text-link {
+  font-size: 0.85rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.text-link:hover { color: var(--accent); border-color: var(--accent); }
+.hero-link {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+.hero-link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Entrepreneurship ── */
+.entrepreneurship-body {
+  max-width: 640px;
+}
+.entrepreneurship-body p {
+  font-size: 0.98rem;
+  color: var(--ink-light);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Contact ── */
+.contact-body p {
+  font-size: 0.98rem;
+  color: var(--ink-light);
+  max-width: 560px;
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+.contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  nav { padding: 1rem 1.5rem; }
+  nav ul { display: none; }
+  .wrap { padding: 4rem 1.5rem; }
+  .two-col,
+  .gov-grid,
+  .testimonials { grid-template-columns: 1fr; gap: 2rem; }
+  .photo-grid { grid-template-columns: 1fr; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 0.4rem; text-align: center; }
+}
+</style>
 </head>
 <body>
+<nav>
+<div class="nav-name">Angélique Bernabé, Ph.D.</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#research">Research</a></li>
+<li><a href="#teaching">Teaching</a></li>
+<li><a href="#governance">Governance</a></li>
+<li><a href="#speaking">Speaking</a></li>
+<li><a href="#entrepreneurship">Entrepreneurship</a></li>
+<li><a href="#contact" class="nav-cta">Let's talk</a></li>
+</ul>
+</nav>
 
-  <nav>
-    <div class="nav-name">Angélique Bernabé, Ph.D.</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#speaking">Speaking</a></li>
-      <li><a href="#entrepreneurship">Entrepreneurship</a></li>
-      <li><a href="#contact" class="nav-cta">Let's talk</a></li>
-    </ul>
-  </nav>
+<!-- Hero -->
+<section id="hero">
+<div class="wrap">
+<p class="orbit-eyebrow">The operating system of a career</p>
+<h1 class="orbit-headline">Research that <span class="orbit-seed">doesn't</span> stay on the shelf.</h1>
 
+<div class="orbit-system">
+  <svg class="orbit-rings" viewBox="0 0 1000 1000" aria-hidden="true">
+    <defs>
+      <radialGradient id="orbit-cg" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="var(--hero-persimmon)" stop-opacity="0.95"/>
+        <stop offset="55%" stop-color="var(--hero-persimmon)" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="var(--hero-persimmon)" stop-opacity="0"/>
+      </radialGradient>
+      <path id="orbit-path" d="M500.0,131.4 C547.4,120.0 618.7,120.0 657.3,146.6 C696.0,173.3 704.1,249.9 731.9,291.2 C759.6,332.6 800.0,353.3 824.0,394.7 C848.0,436.1 883.9,495.4 875.9,539.5 C867.9,583.6 802.1,615.7 775.9,659.3 C749.8,702.9 751.1,762.7 719.0,801.4 C686.9,840.1 631.1,887.8 583.2,891.3 C535.2,894.8 478.4,842.0 431.5,822.4 C384.5,802.8 347.1,794.1 301.3,773.4 C255.5,752.8 179.6,737.9 156.6,698.2 C133.7,658.6 165.5,587.7 163.5,535.4 C161.4,483.1 136.7,434.0 144.3,384.4 C151.9,334.9 171.1,266.5 209.3,238.2 C247.4,210.0 324.6,232.8 373.1,215.0 C421.6,197.2 452.6,142.8 500.0,131.4Z"/>
+    </defs>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="wrap">
-      <h1 class="hero-name">Research that doesn't<br><span style="color: var(--ink-muted);">stay on the shelf.</span></h1>
-      <div class="hero-byline">Angélique Bernabé, Ph.D.</div>
-      <div class="hero-title">Applied Labour Economist</div>
-      <p class="hero-quote">"I work in the spaces between people and opportunity. My job is to close them."</p>
-      <p class="hero-supporting">I lead national research in the financial industry, teach economics at Toronto Metropolitan University, serve on boards, and co-founded <a href="https://locvm.ca/" class="hero-link" target="_blank" rel="noopener">LOCVM</a>.</p>
-      <div class="btn-row">
-        <a href="#contact" class="btn-dark">Let's talk</a>
-        <a href="#about" class="btn-outline">About my work</a>
-      </div>
-    </div>
-  </section>
+    <g class="orbit-plane">
+      <ellipse cx="500" cy="500" rx="476" ry="312" transform="rotate(-15 500 500)"
+        fill="none" stroke="var(--hero-ink)" stroke-opacity="0.07" stroke-width="1.1"/>
+    </g>
 
+    <g class="orbit-echo">
+      <path d="M500.0,278.8 C528.4,272.0 571.2,272.0 594.4,288.0 C617.6,304.0 622.4,349.9 639.1,374.7 C655.8,399.5 680.0,412.0 694.4,436.8 C708.8,461.7 730.4,497.2 725.6,523.7 C720.7,550.2 681.2,569.4 665.5,595.6 C649.9,621.8 650.7,657.6 631.4,680.8 C612.1,704.0 578.7,732.7 549.9,734.8 C521.1,736.9 487.1,705.2 458.9,693.4 C430.7,681.7 408.3,676.5 380.8,664.1 C353.3,651.7 307.8,642.8 294.0,618.9 C280.2,595.1 299.3,552.6 298.1,521.2 C296.8,489.8 282.0,460.4 286.6,430.7 C291.2,400.9 302.7,359.9 325.6,342.9 C348.4,326.0 394.8,339.7 423.9,329.0 C452.9,318.3 471.6,285.7 500.0,278.8Z"
+        fill="none" stroke="var(--hero-mint)" stroke-opacity="0.22" stroke-width="1.3" stroke-dasharray="1 10" stroke-linecap="round"/>
+    </g>
 
-  <!-- About -->
-  <section id="about">
-    <div class="wrap">
-      <div class="label">About</div>
-      <p class="about-lede">I've always been interested in the spaces between people and opportunity.</p>
-      <div class="prose">
-        <p>As a labour economist, I study how labour markets function, how careers evolve, and how institutions respond when people's expectations of work change. My work spans retirement, workforce mobility, physician labour markets, and the future of work, but the underlying question is always the same: how can we design systems that make it easier for people to do meaningful work?</p>
-        <p>That question led me to co-found <a href="https://locvm.ca/" class="text-link" target="_blank" rel="noopener">LOCVM</a>, a platform helping physicians and healthcare organizations connect across Canada. It also shapes my research, teaching, and public speaking, where I explore how flexibility, mobility, and technology are transforming the relationship between people and work.</p>
-        <p>I teach economics at Toronto Metropolitan University, serve on TMU's Board of Governors, and speak on the future of work, workforce innovation, labour market design, and the changing relationship between people and work.</p>
-      </div>
-    </div>
-  </section>
+    <use href="#orbit-path" fill="none" stroke="var(--hero-mint)" stroke-opacity="0.3" stroke-width="1.6"/>
+    <use href="#orbit-path" class="orbit-flow" fill="none" stroke="var(--hero-mint)" stroke-opacity="0.95" stroke-width="2.4" stroke-dasharray="3 20" stroke-linecap="round"/>
 
+    <circle cx="500.0" cy="131.4" r="4.6" fill="var(--hero-mint-tint)" stroke="var(--hero-mint)" stroke-width="1"/>
+    <circle cx="824.0" cy="394.7" r="4.6" fill="var(--hero-mint-tint)" stroke="var(--hero-mint)" stroke-width="1"/>
+    <circle cx="719.0" cy="801.4" r="4.6" fill="var(--hero-mint-tint)" stroke="var(--hero-mint)" stroke-width="1"/>
+    <circle cx="301.3" cy="773.4" r="4.6" fill="var(--hero-mint-tint)" stroke="var(--hero-mint)" stroke-width="1"/>
+    <circle cx="144.3" cy="384.4" r="4.6" fill="var(--hero-mint-tint)" stroke="var(--hero-mint)" stroke-width="1"/>
 
-  <!-- Research -->
-  <section id="research" class="alt">
-    <div class="wrap">
-      <div class="label">Research</div>
-      <h2 class="section-heading">Work is changing faster than<br>the systems built for it.</h2>
-      <div class="research-grid">
-        <div class="research-card">
-          <h3>Physician Labour Markets and Coordination</h3>
-          <p>How healthcare workforce systems fail at matching, and what better-designed institutions could look like.</p>
-        </div>
-        <div class="research-card">
-          <h3>The Future of Work</h3>
-          <p>How technology, flexibility, and shifting expectations are restructuring the employment relationship.</p>
-        </div>
-        <div class="research-card">
-          <h3>Workforce Mobility</h3>
-          <p>The barriers and bridges that shape whether people can move toward better opportunities.</p>
-        </div>
-        <div class="research-card">
-          <h3>Retirement and Later Careers</h3>
-          <p>How people exit, re-enter, and navigate the later stages of working life, and what institutions could do better.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <circle r="26" fill="url(#orbit-cg)" class="orbit-particle">
+      <animateMotion dur="22s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#orbit-path"/></animateMotion>
+    </circle>
+    <circle r="5" fill="var(--hero-persimmon)" class="orbit-particle">
+      <animateMotion dur="22s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#orbit-path"/></animateMotion>
+    </circle>
+    <circle r="3.6" fill="var(--hero-mint)" class="orbit-particle">
+      <animateMotion dur="27s" begin="-9s" repeatCount="indefinite" rotate="auto"><mpath href="#orbit-path"/></animateMotion>
+    </circle>
+  </svg>
 
+  <div class="orbit-photo"><img src="assets/angelique.jpg" alt="Angélique J. Bernabé"></div>
 
-  <!-- Speaking -->
-  <section id="speaking">
-    <div class="wrap">
-      <div class="label">Speaking</div>
-      <h2 class="section-heading">Some ideas need a stage.</h2>
-      <p class="speaking-intro">I speak on labour markets, the future of work, and what it takes to close the gap between how work is organized and how people actually live. My talks are grounded in research and designed to move a room.</p>
+  <div class="orbit-node orbit-node--top" style="left:50.00%; top:13.14%;">
+    <a href="#research">
+      <span class="orbit-dot"></span>
+      <span class="orbit-card">
+        <span class="orbit-verb-row"><span class="orbit-idx">01</span><span class="orbit-verb">Research</span></span>
+        <span class="orbit-tag">Generate evidence</span>
+        <span class="orbit-desc">Ask questions and uncover new ways of understanding the world.</span>
+      </span>
+    </a>
+  </div>
+  <div class="orbit-node orbit-node--right" style="left:82.40%; top:39.47%;">
+    <a href="#teaching">
+      <span class="orbit-dot"></span>
+      <span class="orbit-card">
+        <span class="orbit-verb-row"><span class="orbit-idx">02</span><span class="orbit-verb">Convene</span></span>
+        <span class="orbit-tag">Bring people together</span>
+        <span class="orbit-desc">Teaching, workshops, speaking, and dialogue that gather people around the ideas.</span>
+      </span>
+    </a>
+  </div>
+  <div class="orbit-node orbit-node--right" style="left:71.90%; top:80.14%;">
+    <a href="#governance">
+      <span class="orbit-dot"></span>
+      <span class="orbit-card">
+        <span class="orbit-verb-row"><span class="orbit-idx">03</span><span class="orbit-verb">Govern</span></span>
+        <span class="orbit-tag">Navigate complexity</span>
+        <span class="orbit-desc">Governance and leadership that help institutions decide and adapt through change.</span>
+      </span>
+    </a>
+  </div>
+  <div class="orbit-node orbit-node--left" style="left:30.13%; top:77.34%;">
+    <a href="#speaking">
+      <span class="orbit-dot"></span>
+      <span class="orbit-card">
+        <span class="orbit-verb-row"><span class="orbit-idx">04</span><span class="orbit-verb">Pitch</span></span>
+        <span class="orbit-tag">Inspire action</span>
+        <span class="orbit-desc">Translate ideas into narratives that attract partners and create momentum.</span>
+      </span>
+    </a>
+  </div>
+  <div class="orbit-node orbit-node--left" style="left:14.43%; top:38.44%;">
+    <a href="#entrepreneurship">
+      <span class="orbit-dot"></span>
+      <span class="orbit-card">
+        <span class="orbit-verb-row"><span class="orbit-idx">05</span><span class="orbit-verb">Build</span></span>
+        <span class="orbit-tag">Put ideas into practice</span>
+        <span class="orbit-desc">Organizations, platforms, and partnerships that turn ideas into real infrastructure.</span>
+      </span>
+    </a>
+  </div>
+</div>
 
-      <div class="photo-grid">
-        <figure class="photo-item">
-          <div class="photo-block">Event photo</div>
-          <figcaption>Event name, City, Year</figcaption>
-        </figure>
-        <figure class="photo-item">
-          <div class="photo-block">Event photo</div>
-          <figcaption>Event name, City, Year</figcaption>
-        </figure>
-        <figure class="photo-item">
-          <div class="photo-block">Event photo</div>
-          <figcaption>Event name, City, Year</figcaption>
-        </figure>
-      </div>
+<div class="orbit-signature">Angélique J. Bernabé<span class="orbit-suffix">, Ph.D.</span></div>
 
-      <div class="label" style="margin-bottom: 0.75rem;">Topics</div>
-      <div class="topics">
-        <span class="topic">The future of work</span>
-        <span class="topic">Physician labour markets</span>
-        <span class="topic">Labour market design</span>
-        <span class="topic">Workforce innovation</span>
-        <span class="topic">Entrepreneurship as applied economics</span>
-      </div>
+<p class="orbit-support">
+  I've always been interested in the spaces between people and opportunity.
+  As a labour economist, I study how labour markets function, how careers evolve,
+  and how institutions respond when people's expectations of work change.
+  Across research, teaching, governance, speaking, and building, I'm interested in
+  one question: <strong>how can we design systems that make it easier for people to do
+  meaningful work?</strong>
+</p>
 
-      <a href="#contact" class="btn-dark">Let's talk</a>
-    </div>
-  </section>
+<div class="orbit-cta-row">
+  <a href="#contact" class="orbit-btn-primary">Let's talk</a>
+  <a href="#about" class="orbit-btn-outline">About my work</a>
+</div>
+</div>
+</section>
 
+<!-- About -->
+<section id="about">
+<div class="wrap">
+<div class="label">About</div>
+<p class="about-lede">I've always been interested in the spaces between people and opportunity.</p>
+<div class="prose">
+<p>As a labour economist, I study how labour markets function, how careers evolve, and how institutions respond when people's expectations of work change. My work spans retirement, workforce mobility, physician labour markets, and the future of work, but the underlying question is always the same: how can we design systems that make it easier for people to do meaningful work?</p>
+<p>That question led me to co-found <a href="https://locvm.ca/" class="text-link" target="_blank" rel="noopener">LOCVM</a>, a platform helping physicians and healthcare organizations connect across Canada. It also shapes my research, teaching, and public speaking, where I explore how flexibility, mobility, and technology are transforming the relationship between people and work.</p>
+<p>I teach economics at Toronto Metropolitan University, serve on TMU's Board of Governors, and speak on the future of work, workforce innovation, labour market design, and the changing relationship between people and work.</p>
+</div>
+</div>
+</section>
 
-  <!-- Entrepreneurship -->
-  <section id="entrepreneurship" class="alt">
-    <div class="wrap">
-      <div class="label">Entrepreneurship</div>
-      <h2 class="section-heading">And some need to be built.</h2>
-      <div class="entrepreneurship-body">
-        <p>LOCVM is where my research meets practice. After years of studying how labour markets fail, I co-founded a platform to do something about one of the most visible failures I kept encountering: physicians and healthcare organizations across Canada struggling to find each other.</p>
-        <p class="locvm-thesis">Canada's staffing crisis isn't only a shortage. It's a matching problem, and matching problems can be solved.</p>
-        <p><a href="https://locvm.ca/" class="text-link" target="_blank" rel="noopener">LOCVM</a> connects physicians and healthcare organizations across Canada. It is not a staffing agency. It is the infrastructure for a market that didn't have any.</p>
-      </div>
-    </div>
-  </section>
+<!-- Research -->
+<section id="research" class="alt">
+<div class="wrap">
+<div class="label">Research</div>
+<h2 class="section-heading">Work is changing faster than<br>the systems built for it.</h2>
+<div class="research-grid">
+<div class="research-card">
+<h3>Physician Labour Markets and Coordination</h3>
+<p>How healthcare workforce systems fail at matching, and what better-designed institutions could look like.</p>
+</div>
+<div class="research-card">
+<h3>The Future of Work</h3>
+<p>How technology, flexibility, and shifting expectations are restructuring the employment relationship.</p>
+</div>
+<div class="research-card">
+<h3>Workforce Mobility</h3>
+<p>The barriers and bridges that shape whether people can move toward better opportunities.</p>
+</div>
+<div class="research-card">
+<h3>Retirement and Later Careers</h3>
+<p>How people exit, re-enter, and navigate the later stages of working life, and what institutions could do better.</p>
+</div>
+</div>
+</div>
+</section>
 
+<!-- Teaching -->
+<section id="teaching">
+<div class="wrap">
+<div class="label">Teaching</div>
+<h2 class="section-heading">Some questions need a classroom.</h2>
+<div class="two-col">
+<div>
+<div class="col-label">What I teach</div>
+<div class="col-body">
+<p>I teach economics at Toronto Metropolitan University, where my courses connect economic theory to the realities students will face in their own careers: how labour markets work, how people make decisions about work and life, and how institutions shape the choices available to them.</p>
+</div>
+</div>
+<div>
+<div class="col-label">How I teach</div>
+<div class="col-body">
+<p>My approach is grounded in applied economics. Rather than treating theory as an end in itself, I use it as a lens for understanding real institutions, real markets, and the trade-offs people navigate every day.</p>
+<ul>
+<li>Case-based discussion drawing on current labour market issues</li>
+<li>Connecting economic models to students' own career decisions</li>
+<li>Bringing research and practitioner perspectives into the classroom</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="label">Contact</div>
-      <h2 class="section-heading">The future of work is a conversation.<br>Join it.</h2>
-      <div class="contact-body">
-        <p>I welcome speaking invitations, research collaboration, and media inquiries. If you are organizing a conference, convening a panel, or working on a question at the intersection of labour markets and institutional design, I'd like to hear from you.</p>
-        <div class="contact-links">
-          <a href="mailto:ange@locvm.ca" class="text-link">ange@locvm.ca</a>
-          <a href="https://www.linkedin.com/in/angeliquebernabe" class="text-link" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Governance -->
+<section id="governance" class="alt">
+<div class="wrap">
+<div class="label">Governance</div>
+<h2 class="section-heading">Some questions need a boardroom.</h2>
+<div class="gov-grid">
+<div class="gov-card">
+<h3>Board of Governors</h3>
+<div class="gov-org">Toronto Metropolitan University</div>
+<p>Contributing an economist's perspective to institutional strategy, accountability, and decision-making at one of Canada's largest universities.</p>
+</div>
+<div class="gov-card">
+<h3>Governance as applied economics</h3>
+<div class="gov-org">Perspective</div>
+<p>Good governance is, at its core, a coordination problem: aligning incentives, information, and accountability so institutions can adapt as conditions change.</p>
+</div>
+</div>
+</div>
+</section>
 
+<!-- Speaking -->
+<section id="speaking">
+<div class="wrap">
+<div class="label">Speaking</div>
+<h2 class="section-heading">Some ideas need a stage.</h2>
+<p class="speaking-intro">I speak on labour markets, the future of work, and what it takes to close the gap between how work is organized and how people actually live. My talks are grounded in research and designed to move a room.</p>
+<div class="photo-grid">
+<figure class="photo-item">
+<div class="photo-block">Event photo</div>
+<figcaption>Event name, City, Year</figcaption>
+</figure>
+<figure class="photo-item">
+<div class="photo-block">Event photo</div>
+<figcaption>Event name, City, Year</figcaption>
+</figure>
+<figure class="photo-item">
+<div class="photo-block">Event photo</div>
+<figcaption>Event name, City, Year</figcaption>
+</figure>
+</div>
+<div class="label" style="margin-bottom: 0.75rem;">Topics</div>
+<div class="topics">
+<span class="topic">The future of work</span>
+<span class="topic">Physician labour markets</span>
+<span class="topic">Labour market design</span>
+<span class="topic">Workforce innovation</span>
+<span class="topic">Entrepreneurship as applied economics</span>
+</div>
+<a href="#contact" class="btn-dark">Let's talk</a>
+</div>
+</section>
 
-  <footer>
-    <span>Angélique Bernabé, Ph.D.</span>
-    <span>Applied Labour Economist — Toronto</span>
-  </footer>
+<!-- Entrepreneurship -->
+<section id="entrepreneurship" class="alt">
+<div class="wrap">
+<div class="label">Entrepreneurship</div>
+<h2 class="section-heading">And some need to be built.</h2>
+<div class="entrepreneurship-body">
+<p>LOCVM is where my research meets practice. After years of studying how labour markets fail, I co-founded a platform to do something about one of the most visible failures I kept encountering: physicians and healthcare organizations across Canada struggling to find each other.</p>
+<p class="locvm-thesis">Canada's staffing crisis isn't only a shortage. It's a matching problem, and matching problems can be solved.</p>
+<p><a href="https://locvm.ca/" class="text-link" target="_blank" rel="noopener">LOCVM</a> connects physicians and healthcare organizations across Canada. It is not a staffing agency. It is the infrastructure for a market that didn't have any.</p>
+</div>
+</div>
+</section>
 
+<!-- Contact -->
+<section id="contact">
+<div class="wrap">
+<div class="label">Contact</div>
+<h2 class="section-heading">The future of work is a conversation.<br>Join it.</h2>
+<div class="contact-body">
+<p>I welcome speaking invitations, research collaboration, and media inquiries. If you are organizing a conference, convening a panel, or working on a question at the intersection of labour markets and institutional design, I'd like to hear from you.</p>
+<div class="contact-links">
+<a href="mailto:ange@locvm.ca" class="text-link">ange@locvm.ca</a>
+<a href="https://www.linkedin.com/in/angeliquebernabe" class="text-link" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<span>Angélique Bernabé, Ph.D.</span>
+<span>Applied Labour Economist — Toronto</span>
+</footer>
 </body>
 </html>
