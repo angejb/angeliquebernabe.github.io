@@ -136,7 +136,7 @@ section:last-of-type { border-bottom: none; }
   --hero-persimmon-deep: oklch(0.56 0.16 40);
   --hero-halo: oklch(0.915 0.016 78);
   --hero-glow: oklch(0.95 0.012 80);
-  --hero-sys: clamp(320px, 56vw, 660px);
+  --hero-sys: clamp(280px, 42vw, 480px);
 
   border-bottom: 1px solid var(--rule);
   background:
@@ -150,9 +150,19 @@ section:last-of-type { border-bottom: none; }
   padding-top: 4.5rem;
   padding-bottom: 4rem;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+}
+.hero-col-left {
+  flex: 1;
+  min-width: 0;
+}
+.hero-col-right {
+  flex-shrink: 0;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 .orbit-eyebrow {
   font-family: "Archivo", sans-serif;
@@ -254,16 +264,15 @@ section:last-of-type { border-bottom: none; }
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.5;
   color: var(--hero-ink);
-  margin: 0.6rem auto 0;
-  text-align: center;
+  margin: 0.6rem 0 0;
 }
 .orbit-support {
   font-family: "Work Sans", sans-serif; font-weight: 300; font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-  line-height: 1.75; color: var(--hero-ink-soft); max-width: 640px; margin: 1rem auto 0;
-  text-wrap: pretty; text-align: center;
+  line-height: 1.75; color: var(--hero-ink-soft); max-width: 600px; margin: 1rem 0 0;
+  text-wrap: pretty;
 }
 .orbit-support strong { color: var(--hero-ink); font-weight: 400; }
-.orbit-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2.25rem; }
+.orbit-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; margin-top: 2.25rem; }
 .orbit-btn-primary {
   display: inline-block;
   background: transparent;
@@ -297,7 +306,11 @@ section:last-of-type { border-bottom: none; }
 
 /* ---- small screens ---- */
 @media (max-width: 720px) {
-  #hero .wrap { padding-top: 3rem; padding-bottom: 3rem; }
+  #hero .wrap { padding-top: 3rem; padding-bottom: 3rem; flex-direction: column; }
+  .hero-col-left { text-align: center; }
+  .orbit-tagline { margin: 0.6rem auto 0; }
+  .orbit-support { margin: 1rem auto 0; text-align: center; }
+  .orbit-cta-row { justify-content: center; }
   .orbit-system { margin-top: 1.5rem; }
   .orbit-node a { gap: 8px; }
   .orbit-desc { max-width: 36vw; font-size: 11px; }
@@ -588,9 +601,23 @@ footer {
 <!-- Hero -->
 <section id="hero">
 <div class="wrap">
-<p class="orbit-eyebrow">The operating system of a career</p>
+<div class="hero-col-left">
 <h1 class="orbit-headline">Research that <span class="orbit-seed">doesn't</span> stay on the shelf.</h1>
-
+<p class="orbit-tagline">My career is a case study in the changing nature of work.</p>
+<p class="orbit-support">
+  I've always been interested in the spaces between people and opportunity.
+  As a labour economist, I study how labour markets function, how careers evolve,
+  and how institutions respond when people's expectations of work change.
+  Across research, teaching, governance, speaking, and building, I'm interested in
+  one question: <strong>how can we design systems that make it easier for people to do
+  meaningful work?</strong>
+</p>
+<div class="orbit-cta-row">
+  <a href="#research" class="orbit-btn-primary">What is the future of work? &nbsp;→</a>
+</div>
+</div>
+<div class="hero-col-right">
+<p class="orbit-eyebrow">The operating system of a career</p>
 <div class="orbit-system">
   <svg class="orbit-rings" viewBox="0 0 1000 1000" aria-hidden="true">
     <defs>
@@ -687,19 +714,6 @@ footer {
 </div>
 
 <div class="orbit-signature">Angélique J. Bernabé<span class="orbit-suffix">, Ph.D.</span></div>
-<p class="orbit-tagline">My career is a case study in the changing nature of work.</p>
-
-<p class="orbit-support">
-  I've always been interested in the spaces between people and opportunity.
-  As a labour economist, I study how labour markets function, how careers evolve,
-  and how institutions respond when people's expectations of work change.
-  Across research, teaching, governance, speaking, and building, I'm interested in
-  one question: <strong>how can we design systems that make it easier for people to do
-  meaningful work?</strong>
-</p>
-
-<div class="orbit-cta-row">
-  <a href="#research" class="orbit-btn-primary">What is the future of work? &nbsp;→</a>
 </div>
 </div>
 </section>
